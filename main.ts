@@ -2,16 +2,16 @@ import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Set
 
 // Remember to rename these classes and interfaces!
 
-interface MyPluginSettings {
+interface PathCopySettings {
 	mySetting: string;
 }
 
-const DEFAULT_SETTINGS: MyPluginSettings = {
+const DEFAULT_SETTINGS: PathCopySettings = {
 	mySetting: 'default'
 }
 
-export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
+export default class PathCopyPlugin extends Plugin {
+	settings: PathCopySettings;
 
 	async onload() {
 		await this.loadSettings();
@@ -21,6 +21,7 @@ export default class MyPlugin extends Plugin {
 			// Called when the user clicks the icon.
 			new Notice('This is a notice!');
 		});
+		
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
 
@@ -108,9 +109,9 @@ class SampleModal extends Modal {
 }
 
 class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+	plugin: PathCopyPlugin;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: PathCopyPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
