@@ -9,9 +9,13 @@ export default class PathCopyPlugin extends Plugin {
 
 
 		this.registerEvent(this.app.workspace.on('file-menu', (menu, file, src, leaf) => {
+
 			menu.addItem(item => {
+				// const existingIndex = menu.items.findIndex(item => item.dom.innerText === "Copy Obsidian URL")
+
 				item.setTitle('Copy as Path')
 					.setIcon('copy')
+					.setSection('info')
 					.onClick(() => {
 						const vaultPath = file.vault.adapter.basePath
 						const relativeFilePath = file.path
